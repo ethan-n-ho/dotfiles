@@ -55,7 +55,10 @@ endfun
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'mhinz/vim-startify'
+Plug 'kshenoy/vim-signature'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'jremmen/vim-ripgrep'
@@ -67,6 +70,11 @@ Plug 'justinmk/vim-sneak'
 call plug#end()
 
 " ***************************** Configure Plugins *****************************
+
+" ripgrep
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -265,7 +273,7 @@ nnoremap <leader>pv :Vex<CR>
 nnoremap <leader>ps :Rg<SPACE>
 
 " remove search highlight when returning to normal mode
-nnoremap <silent> <esc> :noh<CR><esc>
+"nnoremap <silent> <esc><esc> :noh<CR><ESC>
 
 " registers and aliases
 noremap <leader>y "*y
@@ -278,22 +286,6 @@ noremap <leader>dws :%s/\S\zs\s\{2,}/ /g<CR>
 " toggle light/dark BG
 nnoremap <leader>1 :call ToggleGruvboxBG()<CR>
 
-" vimwiki
-nmap ,wt <Plug>VimwikiTabIndex
-nmap ,ws <Plug>VimwikiUISelect
-nmap ,wi <Plug>VimwikiDiaryIndex
-nmap ,w,w <Plug>VimwikiMakeDiaryNote
-nmap ,w,t <Plug>VimwikiTabMakeDiaryNote
-nmap ,w,y <Plug>VimwikiMakeYesterdayDiaryNote
-nmap ,w,m <Plug>VimwikiMakeTomorrowDiaryNote
-nmap ,wh <Plug>Vimwiki2HTML
-nmap ,whh  <Plug>Vimwiki2HTMLBrowse
-nmap ,w,wk <Plug>VimwikiDiaryGenerateLinks
-nmap ,w,w <Plug>VimwikiMakeDiaryNote
-nmap ,wr <Plug>VimwikiRenameFile
-nmap ,wd <Plug>VimwikiDeleteFile
-nmap ,wn <Plug>VimwikiGoto
-nmap ,ww <Plug>VimwikiIndex
-
 " autocompleters
 autocmd BufWritePre * :call TrimWhitespace()
+
