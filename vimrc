@@ -19,8 +19,9 @@ set incsearch
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+set mouse=a
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " recommended for coc.vim
 set hidden
@@ -64,7 +65,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'jremmen/vim-ripgrep'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vimwiki/vimwiki'
 Plug 'justinmk/vim-sneak'
 
 call plug#end()
@@ -85,21 +85,6 @@ let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 15
 
-" vimwiki: use markdown
-let g:vimwiki_list = [{
-    \ 'path': '~/vimwiki/docsrc',
-    \ 'template_path': '~/vimwiki/templates/',
-    \ 'template_default': 'default',
-    \ 'syntax': 'markdown',
-    \ 'ext': '.md',
-    \ 'path_html': '~/vimwiki/docs/',
-    \ 'custom_wiki2html': 'vimwiki_markdown',
-    \ 'html_filename_parameterization': 1,
-    \ 'template_ext': '.tpl'}]
-
-" add the pre tag for inserting code snippets
-let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr, pre, script'
-
 " ctrl p
 set runtimepath^=~/.vim/plugged/ctrlp.vim
 let g:ctrlp_use_caching = 0
@@ -108,9 +93,10 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " ************************************ Colors *********************************
 
 " gruvbox, baby
-colorscheme gruvbox
 let g:gruvbox_contrast_light='hard'
 let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_transparent_bg='1'
+"colorscheme gruvbox
 set background=dark
 
 " *********************************** coc.vim *********************************
@@ -273,7 +259,7 @@ nnoremap <leader>pv :Vex<CR>
 nnoremap <leader>ps :Rg<SPACE>
 
 " remove search highlight when returning to normal mode
-"nnoremap <silent> <esc><esc> :noh<CR><ESC>
+nnoremap <silent> <esc><esc> :noh<CR><ESC>
 
 " registers and aliases
 noremap <leader>y "*y
