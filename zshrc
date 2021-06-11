@@ -47,9 +47,12 @@ source $ZSH/oh-my-zsh.sh
 
 # ************************ User configuration **********************************
 
+eval "$(pyenv init --path)"
+
 # Keybinds
 bindkey -v
 bindkey '^ ' autosuggest-accept
+export EDITOR='nvim'
 export VISUAL=$EDITOR
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd V edit-command-line
@@ -58,14 +61,6 @@ bindkey -M vicmd V edit-command-line
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-# Preferred editor
-export EDITOR='nvim'
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
