@@ -92,3 +92,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source $HOME/.zsh_custom/plugins/zsh-syntax-highlighting
+
+export PATH="$HOME/.poetry/bin:$PATH"
